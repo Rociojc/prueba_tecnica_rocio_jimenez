@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { CardDisplay } from '../components/CardDisplay';
+import { CardDisplay } from '../components/cards/CardDisplay';
 import { UseContext } from '../components/context/UseContext';
 import { getProductById } from '../services/Products';
 

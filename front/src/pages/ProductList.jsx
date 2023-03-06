@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Card } from '../components/Card'
+import React, { useContext, useEffect } from 'react'
+import { Card } from '../components/cards/Card'
 import { UseContext } from '../components/context/UseContext';
 import { getProducts } from '../services/Products';
 
