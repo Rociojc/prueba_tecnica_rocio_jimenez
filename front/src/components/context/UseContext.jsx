@@ -1,13 +1,18 @@
 import { createContext, useEffect, useState } from "react";
-import { getProducts } from "../../services/Products";
 
 export const UseContext = createContext();
 
 export const UseProvider = ({children}) => {
 
+    const _PRODUCT_LOCALSTORAGE = "lsProduct";
+    const lsCart = localStorage.getItem(_PRODUCT_LOCALSTORAGE);
     const [ dataProducts, setDataProducts ] = useState([]);
     const [ product, setProduct ] = useState(null);
-    const [ productCart, setProductCart ] = useState([]);
+    const [ productCart, setProductCart ] = useState(lsCart != null ? JSON.parse(lsCart) : []);
+
+    useEffect(() => {
+        localStorage.setItem(_PRODUCT_LOCALSTORAGE, JSON.stringify(productCart));
+    }, [productCart, setProductCart]);
 
 
     const addProductCart = (product)=>{
@@ -15,7 +20,6 @@ export const UseProvider = ({children}) => {
         const copyCar = [...productCart]; 
 
         //2. Busco si ya existe
-        // console.log(product,'product')
         const productRepeat = copyCar.find((item) => item.product._id === product._id);
 
         //2.1 Si no existe (nuevo, lo agrego)
@@ -29,8 +33,6 @@ export const UseProvider = ({children}) => {
             productRepeat.count+=1;
         }
         setProductCart(copyCar)
-
-        // console.log(productCart)
     }
 
     const reduceProductCart = () => {
@@ -44,8 +46,6 @@ export const UseProvider = ({children}) => {
         }
 
         setProductCart(copyCar)
-
-        // console.log(productCart)
     }
 
     const deleteProduct = (product) => {

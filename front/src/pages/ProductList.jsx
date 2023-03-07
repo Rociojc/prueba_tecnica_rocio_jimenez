@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { Card } from '../components/cards/Card'
 import { UseContext } from '../components/context/UseContext';
 import { getProducts } from '../services/Products';
+import { SectionListStyle } from '../styles/page/ProductListStyle';
 
 export const ProductList = () => {
 
@@ -13,7 +14,7 @@ export const ProductList = () => {
 
   return (
     <main>
-      <section style={{padding: "20px"}}>
+      <SectionListStyle>
       {
         dataProducts.map(product => 
           <Card
@@ -24,10 +25,12 @@ export const ProductList = () => {
             category={product.category}
             brand={product.brand}
             price={product.price}
+            rating={product.rating}
+            numReviews={product.numReviews}
           />
             )
         }
-      </section>
+      </SectionListStyle>
     </main>
   )
 }

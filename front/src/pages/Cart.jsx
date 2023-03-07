@@ -2,15 +2,15 @@ import React, { useContext } from 'react'
 import { CartTotal } from '../components/cartContent/CartTotal';
 import { UseContext } from '../components/context/UseContext'
 import { CartProduct } from '../components/cartContent/CartProduct';
+import { ContentCartStyle } from '../styles/page/CartStyle';
 
 export const Cart = () => {
 
-    const { productCart, setProductCart } = useContext(UseContext);
-
-    
+  const { productCart } = useContext(UseContext);
 
   return productCart.length > 0 ? (
-    <>
+    <ContentCartStyle>
+    <div>
     {
       productCart.map(item => {
       return(
@@ -27,8 +27,9 @@ export const Cart = () => {
       )
       })
     }
+    </div>
     <CartTotal/>
-    </>
+    </ContentCartStyle>
   ) :
   (
     <h2>Your cart is empty</h2>

@@ -1,26 +1,29 @@
 import styled from "styled-components";
 
 export const HeaderStyle = styled.header`
-    border: 1px solid black;
-
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
+    background-color: #f5f6fa;
 `
 
-export const FigureStyle = styled.figure`
-    border: 1px solid black;
-
+export const ContentImgHome = styled.figure`
     width: 2rem;
     height: 2rem;
     position: relative;
+    cursor: pointer;
+`
+
+export const ContentImgCart = styled.figure`
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+    cursor: pointer;
 `
 
 export const Span = styled.span`
-    border: 1px solid black;
-
-    background-color: aqua;
+    background-color: #fe823a;
     padding: 0 7px 2px;
     border-radius: 50%;
     position: absolute;
